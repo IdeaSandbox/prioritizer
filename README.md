@@ -2,7 +2,7 @@
 #### Tool to help you put your tasks in order by using forced-choice comparison.
 ---
 ## Background
-This project started in '07 or '08 with the desire to find a better tool to help
+This project started in '07 or '08 with the desire to find a better tool to make it easier to manage a whole list of things to do that all seemed to be equally important. This tool takes items on your lists and pairs them. If you had A, B, C and D things to do, the tool asks you. Which is more imporant A or B, A or C and A or D. It then asks B or C, B or D, etc., until it has paired all the tasks. Each time something wins the "more important" vote it gets a point and moved higher on the priority list.
 
 ## The Files
 
