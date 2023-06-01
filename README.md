@@ -20,5 +20,13 @@ This is what a user sees when they finish Prioritizing. It creates a dated, read
 ### prioritizer.css
 Styles the Prioritizer.
 
-### styles-site.css
-An old style sheet that was used back in 2007 or 2008
+### prioritizer.js
+This defines the prioritization system. It uses PrototypeJS and needs to be updated.
+
+### prototype.js
+I believe this is the math behind what makes the tool work.
+
+### IMAGE FILES
+- lines.png - provide the lines for the printable version for extra writing space
+- sandbox_bottom.gif - an Idea Sandbox logo pattern which would appear on the bottom of the Prioritizer tool as you work
+- script.jpg - Idea Sandbox logo
