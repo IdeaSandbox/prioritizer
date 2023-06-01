@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<head>
+<title>Prioritizer, from Idea-Sandbox.com</title>
+<link rel="stylesheet" href="https://use.typekit.net/xeg2xyi.css">
+<link rel="stylesheet" href="https://www.idea-sandbox.com/wp-content/themes/Avada-Child-Theme/assets/prioritizer.css" type="text/css" />
+<link rel="stylesheet" href="https://use.typekit.net/zpj2fam.css">
+<script language="JavaScript" type="text/javascript" src="https://www.idea-sandbox.com/wp-content/themes/Avada-Child-Theme/assets/prototype.js"></script>
+<script language="JavaScript">
+
+document.observe('dom:loaded', function() { getPrintableResults(); });
+
+function getPrintableResults() {
+
+	var target = document.getElementById("resultsContainer");
+
+	var itemList = window.opener.itemList;
+	for (var i = 0; i < itemList.items.length; i++) {
+		var p = document.createElement("p");
+		window.opener.setClass(p, "prioritizedItemPrintStyle");
+		var checkbox = createCheckbox(itemList.items[i].name, itemList.items[i].name);
+		var label = document.createElement("span");
+		label.innerHTML = " ("  + (i+1) + ") " + itemList.items[i].name;
+
+ 		p.appendChild(checkbox);
+		p.appendChild(label);
+		target.appendChild(p);
+
+	}
+
+}
+
+function getDate() {
+
+	var months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+	var d  = new Date();
+	$('today').innerHTML = (months[d.getMonth()] + " " + d.getDate() + ", " + d.getFullYear());
+}
+
+function createCheckbox(name, id) {
+
+	// Workaround for an IE bug in which names cannot be applied to dynamically created DOM elements.
+	// Note that the MS method breaks in standards-compliant browsers, so the whole thing must be wrapped in a try/catch block.
+	// Problem documented and solution found at http://alt-tag.com/blog/archives/2006/02/ie-dom-bugs/
+
+	var element = null;
+
+	try {
+
+		// First try the IE way; if this fails then use the standard way
+		element = document.createElement('<input type="checkbox" name="'+name+'" id="'+id+'">');
+
+	} catch (e) {
+
+		// Probably failed because we're not running on IE
+
+	}
+
+	if (!element) {
+
+		element = document.createElement("input");
+		element.type = "checkbox";
+		element.name = name;
+		element.id = id;
+
+	}
+
+	return element;
+
+}
+
+</script>
+</head>
+
+<!-- <body style="background-color: #ffffff; font-family: futura-pt!important; text-align: center;"> -->
+
+<body>
+
+<table border="0" style="width: 100%; text-align: center;">
+<tr>
+<td>
+
+<div id="prioritizer">
+
+	<div id="results" style="width: 100%; text-align: center;">
+		<h2>&star; Your Priorities &star;</h2>
+		<h4>Prioritized Action Steps on: <span id="today"></span></h4>
+		<script language="JavaScript">getDate();</script>
+	
+		<div id="resultsContainer" style="margin-left: 25%; margin-right: 25%;"></div>
+		<h3 style="text-align: center;">Additional Notes</h3>
+		<img src="https://www.idea-sandbox.com/wp-content/themes/Avada-Child-Theme/assets/images/lines.png" alt="" width="520" height="45" hspace="0" vspace="0" border="0" /><br/><br />
+		<img src="https://www.idea-sandbox.com/wp-content/themes/Avada-Child-Theme/assets/images/lines.png" alt="" width="520" height="45" hspace="0" vspace="0" border="0" /><br/><br />
+	
+	</div><!-- results -->
+
+</div><!-- resultsContainer -->
+
+</div><!-- prioritizer -->
+
+<p style="text-align: cener;">Keep yourself in order with your <a href="https://idea-sandbox.com/innovation-tools/prioritizer" target=_"blank" >Idea Sandbox Prioritizer</a>
+
+<br />
+<div style="float: left; width: 40%; text-align: left;">
+	<div class="attribution" style="text-align: center"><b>Idea Sandbox Prioritizer</b><br>Refreshed August 2020<br />&copy; Idea Sandbox</div>
+</div>
+
+<div style="float: right; width: 40%; text-align: right;"><img src="https://www.idea-sandbox.com/wp-content/themes/Avada-Child-Theme/assets/images/script.jpg" alt="Idea Sandbox" width="166" height="50" hspace="0" vspace="0" border="0" /></div>
+</div>
+
+</td>
+</tr>
+</table>
+
+</body>
+</html>
